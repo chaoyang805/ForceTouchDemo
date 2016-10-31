@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21018DBB1DC74C7300AC2833 /* UIResponder+NearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21018DBA1DC74C7300AC2833 /* UIResponder+NearestViewController.swift */; };
 		213513431DC5C52900258273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513421DC5C52900258273 /* AppDelegate.swift */; };
 		213513451DC5C52900258273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513441DC5C52900258273 /* ViewController.swift */; };
 		213513481DC5C52900258273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213513461DC5C52900258273 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21018DBA1DC74C7300AC2833 /* UIResponder+NearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+NearestViewController.swift"; sourceTree = "<group>"; };
 		2135133F1DC5C52900258273 /* ForceTouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForceTouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		213513421DC5C52900258273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		213513441DC5C52900258273 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				213513441DC5C52900258273 /* ViewController.swift */,
 				213513541DC5D90700258273 /* CYBigbangView.swift */,
 				213513561DC5DF2100258273 /* Observable+Unwrap.swift */,
+				21018DBA1DC74C7300AC2833 /* UIResponder+NearestViewController.swift */,
 				21990DC51DC6DF890079B572 /* XFWordSpliter.swift */,
 				213513461DC5C52900258273 /* Main.storyboard */,
 				213513491DC5C52900258273 /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 				213513451DC5C52900258273 /* ViewController.swift in Sources */,
 				213513431DC5C52900258273 /* AppDelegate.swift in Sources */,
 				213513551DC5D90700258273 /* CYBigbangView.swift in Sources */,
+				21018DBB1DC74C7300AC2833 /* UIResponder+NearestViewController.swift in Sources */,
 				213513571DC5DF2100258273 /* Observable+Unwrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

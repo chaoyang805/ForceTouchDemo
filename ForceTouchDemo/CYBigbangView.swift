@@ -8,13 +8,16 @@
 
 import UIKit
 import RxSwift
-
+import MobileCoreServices
 class CYBigbangView: UITextView {
     
     private var disposeBag = DisposeBag()
+    private lazy var  btnColor: UIColor = {
+        return UIColor(red: 0, green: 122 / 255, blue: 1.0, alpha: 1.0)
+    }()
     
-    var bigbangFired = false
     let feedback = UIImpactFeedbackGenerator(style: .heavy)
+    var bigbangFired = false
     
     var hSpacing: CGFloat = 10
     var vSpacing: CGFloat = 10
@@ -22,6 +25,36 @@ class CYBigbangView: UITextView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         self.clipsToBounds = false
+
+    }
+    
+    private func presentActionSheet(with text: String) {
+        
+        
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let shareAction = UIAlertAction(title: "复制", style: .default, handler: { action in
+            NSLog("share \(text)")
+            let pasteBoard = UIPasteboard.general
+            pasteBoard.string = text
+        })
+        alert.addAction(shareAction)
+        let copyAction = UIAlertAction(title: "分享", style: .default, handler: { action in
+            NSLog("copy \(text)")
+            let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            self.findNearestViewController()?.present(activityVC, animated: true, completion: nil)
+            
+        })
+        
+        alert.addAction(copyAction)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        if let vc = self.findNearestViewController() {
+            vc.present(alert, animated: true, completion: nil)
+        } else {
+            NSLog("failed to find vc")
+        }
     }
     
     lazy var presentBigbang: ([String]) -> Void = {
@@ -30,8 +63,11 @@ class CYBigbangView: UITextView {
             
             NSLog("presenting:\(words)")
             let containerWidth = UIScreen.main.bounds.width * 0.8
+            let containerHeight = UIScreen.main.bounds.height * 0.8
             let container = UIScrollView()
-            container.backgroundColor = UIColor.yellow
+            container.tag = 0x1010
+            container.backgroundColor = UIColor.darkGray
+            container.layer.cornerRadius = 4
             var currentXPos = self.hSpacing
             var currentYPos = self.vSpacing
             var maxYPos = self.vSpacing
@@ -39,13 +75,24 @@ class CYBigbangView: UITextView {
             var btnXPos = currentXPos
             var btnYPos = currentYPos
             var currentBtn: UIButton?
-            
+            var tapEvent:(_ text: String) -> (() -> Void) = { text in
+                return {
+                    NSLog("button \(text) tapped")
+                
+                }
+            }
             for word in words {
                 
                 currentBtn = UIButton(type: .system)
                 currentBtn!.setTitle(word, for: .normal)
                 currentBtn!.sizeToFit()
+                currentBtn!.setTitleColor(UIColor.white, for: .normal)
                 
+                currentBtn!.rx
+                    .tap
+                    .map { word }
+                    .subscribe (onNext: self.presentActionSheet)
+                    .addDisposableTo(self.disposeBag)
                 // 如果再添加一个 button 后宽度超出了父 View 的宽度，向下折行
                 if currentXPos + currentBtn!.bounds.width + self.hSpacing > containerWidth {
                     currentXPos = self.hSpacing
@@ -55,10 +102,25 @@ class CYBigbangView: UITextView {
                 currentBtn!.frame.origin = CGPoint(x: currentXPos, y: currentYPos)
                 container.addSubview(currentBtn!)
                 currentXPos += currentBtn!.bounds.width + self.hSpacing
+                
             }
+            
             if currentBtn != nil {
                 maxYPos += currentBtn!.bounds.height + self.vSpacing
             }
+            
+            let dismissBtn = UIButton(type: .system)
+            dismissBtn.setTitle("关闭", for: .normal)
+            dismissBtn.frame = CGRect(x: 0, y: maxYPos, width: containerWidth, height: 44)
+            dismissBtn.rx
+                .tap
+                .subscribe(onNext: { () in
+                    container.removeFromSuperview()
+                })
+                .addDisposableTo(self.disposeBag)
+            container.addSubview(dismissBtn)
+            
+            maxYPos += 54
             
             let containerX: CGFloat = 30
             let containerY: CGFloat = 60
@@ -66,11 +128,25 @@ class CYBigbangView: UITextView {
             if self.superview != nil {
                 containerOrigin = self.convert(containerOrigin, from: self.superview!)
             }
-            container.frame = CGRect(origin: containerOrigin, size: CGSize(width: containerWidth, height: 200))
+            
+            container.frame = CGRect(origin: containerOrigin, size: CGSize(width: containerWidth, height: containerHeight))
             container.isScrollEnabled = true
             container.contentSize = CGSize(width: containerWidth, height: maxYPos)
-            
+            container.alpha = 0
+            container.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             self.addSubview(container)
+            
+            UIView.animate(
+                withDuration: 0.4,
+                delay: 0,
+                usingSpringWithDamping: 0.7,
+                initialSpringVelocity: 0.7,
+                options: UIViewAnimationOptions.curveEaseInOut,
+                animations: { 
+                    container.alpha = 1
+                    container.transform = CGAffineTransform.identity
+                },
+                completion: nil)
         }
     
     }()
@@ -85,71 +161,29 @@ class CYBigbangView: UITextView {
         }
     }()
     
+    lazy var mapAndFilter: (String) -> [String] = {
     
-//    lazy var fireBigbang: (UITouch) -> Void = {
-//        
-//        return { touch in
-//            NSLog("force touch")
-//            self.bigbangFired = true
-//            
-//            self.feedback.impactOccurred()
-//            
-//            XFWordSpliter.splitText(self.text)
-//                .map { $0.components(separatedBy: CharacterSet.whitespaces) }
-//                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.default))
-//            
-    
+        return {
             
-//            self.processWordSplit(self.text)
-//                .map { $0.components(separatedBy: CharacterSet.whitespaces) }
-//                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.default))
-//                .observeOn(MainScheduler.instance)
-//                .subscribe(
-//                    onNext: self.presentBigbang,
-//                    onError: nil,
-//                    onCompleted: nil,
-//                    onDisposed: nil)
-//                .addDisposableTo(self.disposeBag)
-//            
-//        }
-//    }()
-//    
-//    lazy var processWordSplit: (String) -> Observable<String> = {
-//        NSLog("process word split")
-//        return { text in
-//            
-//            return Observable.create { (observer: AnyObserver<Data>) -> Disposable in
-//                
-//                let parameters = "api_key=q114o7u7c8W2G0y2m5v0yLOZIVqCkpDmAKzTVIEs&text=神奇女侠盖尔霸气总攻不见不散&pattern=ws&format=plain"
-//
-//                guard let url = URL(string: "http://ltpapi.voicecloud.cn/analysis/?api_key=q114o7u7c8W2G0y2m5v0yLOZIVqCkpDmAKzTVIEs&text=%E5%93%88%E5%B7%A5%E5%A4%A7%E5%92%8C%E7%A7%91%E5%A4%A7%E8%AE%AF%E9%A3%9E%E8%81%94%E5%90%88%E7%A0%94%E5%8F%91%E7%9A%84%E4%BA%91%E7%AB%AF%E4%B8%AD%E6%96%87%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1%E5%B9%B3%E5%8F%B0%EF%BC%8C%E6%8F%90%E4%BE%9B%E5%88%86%E8%AF%8D%E3%80%81%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E3%80%81%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%E3%80%81%E4%BE%9D%E5%AD%98%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90%E3%80%81%E8%AF%AD%E4%B9%89%E8%A7%92%E8%89%B2%E6%A0%87%E6%B3%A8%E7%AD%89%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1&pattern=ws&format=plain") else {
-//                    NSLog("url invalid")
-//                    return Disposables.create()
-//                }
-//                let request = URLRequest(url: url)
-//                
-//                URLSession.shared.dataTask(with: request) { (data, response, error) in
-//                    NSLog("response:\(response)")
-//                    if let _ = data {
-//                        NSLog("on next")
-//                        observer.onNext(data!)
-//                    }
-//                    if let e = error {
-//                        NSLog("on error \(e)")
-//                        observer.onError(e)
-//                    }
-//                    observer.onCompleted()
-//                        
-//                }.resume()
-//                return Disposables.create()
-//                
-//            }
-//            .map { String(data: $0, encoding: .utf8) }
-//            .unwrap()
-//        
-//        }
-//    
-//    }()
+            let regex = try! NSRegularExpression(pattern: "[\\u3002\\uff1b\\uff0c\\uff1a\\u201c\\u201d\\uff08\\uff09\\u3001\\uff1f\\u300a\\u300b\\uff01]", options: .allowCommentsAndWhitespace)
+                
+            return $0.components(separatedBy: CharacterSet.whitespaces)
+                .filter {
+                !(regex.matches(in: $0, options: [], range: NSRange(location: 0, length: $0.characters.count)).count > 0)
+            }
+        }
+    
+    }()
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if let container = viewWithTag(0x1010) as? UIScrollView {
+            let p = container.convert(point, from: self)
+            if container.bounds.contains(p) {
+                return true
+            }
+        }
+        return super.point(inside: point, with: event)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         feedback.prepare()
@@ -170,13 +204,14 @@ class CYBigbangView: UITextView {
         let disposable = Observable
             .just(touch)
             .filter {
-                $0.force > 4.0 && $0.force < 5.0
+                $0.force > 4.0 && $0.force < 6.0
             }
             .do(onNext: self.fireBigbang)
+            .subscribeOn(MainScheduler.instance)
             .flatMap { (touch) -> Observable<String> in
                 return XFWordSpliter.splitText(text)
             }
-            .map { $0.components(separatedBy: CharacterSet.whitespaces) }
+            .map(self.mapAndFilter)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.default))
             .observeOn(MainScheduler.instance)
             .subscribe(
@@ -188,6 +223,8 @@ class CYBigbangView: UITextView {
         
         disposeBag.insert(disposable)
     }
+    
+    
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         bigbangFired = false
