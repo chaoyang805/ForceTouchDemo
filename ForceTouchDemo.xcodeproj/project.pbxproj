@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		213513431DC5C52900258273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513421DC5C52900258273 /* AppDelegate.swift */; };
+		213513451DC5C52900258273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513441DC5C52900258273 /* ViewController.swift */; };
+		213513481DC5C52900258273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 213513461DC5C52900258273 /* Main.storyboard */; };
+		2135134A1DC5C52900258273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 213513491DC5C52900258273 /* Assets.xcassets */; };
+		2135134D1DC5C52900258273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2135134B1DC5C52900258273 /* LaunchScreen.storyboard */; };
+		213513551DC5D90700258273 /* CYBigbangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513541DC5D90700258273 /* CYBigbangView.swift */; };
+		213513571DC5DF2100258273 /* Observable+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213513561DC5DF2100258273 /* Observable+Unwrap.swift */; };
+		21990DC61DC6DF890079B572 /* XFWordSpliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21990DC51DC6DF890079B572 /* XFWordSpliter.swift */; };
+		59029CC427CB3DA429DA59CF /* Pods_ForceTouchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6220DC7CD09108114F5E7DA /* Pods_ForceTouchDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2135133F1DC5C52900258273 /* ForceTouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForceTouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		213513421DC5C52900258273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		213513441DC5C52900258273 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		213513471DC5C52900258273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		213513491DC5C52900258273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2135134C1DC5C52900258273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2135134E1DC5C52900258273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		213513541DC5D90700258273 /* CYBigbangView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CYBigbangView.swift; sourceTree = "<group>"; };
+		213513561DC5DF2100258273 /* Observable+Unwrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Unwrap.swift"; sourceTree = "<group>"; };
+		21990DC51DC6DF890079B572 /* XFWordSpliter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XFWordSpliter.swift; sourceTree = "<group>"; };
+		54EF4DC4C6EEC5221B05A9A3 /* Pods-ForceTouchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceTouchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ForceTouchDemo/Pods-ForceTouchDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A6220DC7CD09108114F5E7DA /* Pods_ForceTouchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForceTouchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40F85842154F9810E1CB428 /* Pods-ForceTouchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForceTouchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ForceTouchDemo/Pods-ForceTouchDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2135133C1DC5C52900258273 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59029CC427CB3DA429DA59CF /* Pods_ForceTouchDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		213513361DC5C52900258273 = {
+			isa = PBXGroup;
+			children = (
+				213513411DC5C52900258273 /* ForceTouchDemo */,
+				213513401DC5C52900258273 /* Products */,
+				DDE31342410FE3970D5C6034 /* Pods */,
+				C4FDD9AEEF65C25EAADCFCD9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		213513401DC5C52900258273 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2135133F1DC5C52900258273 /* ForceTouchDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		213513411DC5C52900258273 /* ForceTouchDemo */ = {
+			isa = PBXGroup;
+			children = (
+				213513421DC5C52900258273 /* AppDelegate.swift */,
+				213513441DC5C52900258273 /* ViewController.swift */,
+				213513541DC5D90700258273 /* CYBigbangView.swift */,
+				213513561DC5DF2100258273 /* Observable+Unwrap.swift */,
+				21990DC51DC6DF890079B572 /* XFWordSpliter.swift */,
+				213513461DC5C52900258273 /* Main.storyboard */,
+				213513491DC5C52900258273 /* Assets.xcassets */,
+				2135134B1DC5C52900258273 /* LaunchScreen.storyboard */,
+				2135134E1DC5C52900258273 /* Info.plist */,
+			);
+			path = ForceTouchDemo;
+			sourceTree = "<group>";
+		};
+		C4FDD9AEEF65C25EAADCFCD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6220DC7CD09108114F5E7DA /* Pods_ForceTouchDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDE31342410FE3970D5C6034 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				54EF4DC4C6EEC5221B05A9A3 /* Pods-ForceTouchDemo.debug.xcconfig */,
+				C40F85842154F9810E1CB428 /* Pods-ForceTouchDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2135133E1DC5C52900258273 /* ForceTouchDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 213513511DC5C52900258273 /* Build configuration list for PBXNativeTarget "ForceTouchDemo" */;
+			buildPhases = (
+				234220E721808A81C918EB13 /* [CP] Check Pods Manifest.lock */,
+				2135133B1DC5C52900258273 /* Sources */,
+				2135133C1DC5C52900258273 /* Frameworks */,
+				2135133D1DC5C52900258273 /* Resources */,
+				55F79E8093F15EECB3EEEBA6 /* [CP] Embed Pods Frameworks */,
+				E40B65CCAA38741231ACF744 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForceTouchDemo;
+			productName = ForceTouchDemo;
+			productReference = 2135133F1DC5C52900258273 /* ForceTouchDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		213513371DC5C52900258273 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = chaoyang805;
+				TargetAttributes = {
+					2135133E1DC5C52900258273 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F6SWAY5599;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2135133A1DC5C52900258273 /* Build configuration list for PBXProject "ForceTouchDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 213513361DC5C52900258273;
+			productRefGroup = 213513401DC5C52900258273 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2135133E1DC5C52900258273 /* ForceTouchDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2135133D1DC5C52900258273 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2135134D1DC5C52900258273 /* LaunchScreen.storyboard in Resources */,
+				2135134A1DC5C52900258273 /* Assets.xcassets in Resources */,
+				213513481DC5C52900258273 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		234220E721808A81C918EB13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55F79E8093F15EECB3EEEBA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ForceTouchDemo/Pods-ForceTouchDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E40B65CCAA38741231ACF744 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ForceTouchDemo/Pods-ForceTouchDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2135133B1DC5C52900258273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21990DC61DC6DF890079B572 /* XFWordSpliter.swift in Sources */,
+				213513451DC5C52900258273 /* ViewController.swift in Sources */,
+				213513431DC5C52900258273 /* AppDelegate.swift in Sources */,
+				213513551DC5D90700258273 /* CYBigbangView.swift in Sources */,
+				213513571DC5DF2100258273 /* Observable+Unwrap.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		213513461DC5C52900258273 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				213513471DC5C52900258273 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2135134B1DC5C52900258273 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2135134C1DC5C52900258273 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2135134F1DC5C52900258273 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		213513501DC5C52900258273 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		213513521DC5C52900258273 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54EF4DC4C6EEC5221B05A9A3 /* Pods-ForceTouchDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F6SWAY5599;
+				INFOPLIST_FILE = ForceTouchDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.chaoyang805.ForceTouchDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		213513531DC5C52900258273 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C40F85842154F9810E1CB428 /* Pods-ForceTouchDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F6SWAY5599;
+				INFOPLIST_FILE = ForceTouchDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.chaoyang805.ForceTouchDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2135133A1DC5C52900258273 /* Build configuration list for PBXProject "ForceTouchDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2135134F1DC5C52900258273 /* Debug */,
+				213513501DC5C52900258273 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		213513511DC5C52900258273 /* Build configuration list for PBXNativeTarget "ForceTouchDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				213513521DC5C52900258273 /* Debug */,
+				213513531DC5C52900258273 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 213513371DC5C52900258273 /* Project object */;
+}
